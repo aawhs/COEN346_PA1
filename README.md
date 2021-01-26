@@ -1,1 +1,1 @@
-# COEN346_PA1
+# COEN346 Programming Assignment 1
