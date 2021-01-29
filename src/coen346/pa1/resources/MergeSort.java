@@ -9,8 +9,7 @@ public class MergeSort {
 
 
     public static void merge(int[] arr, int lo, int mid, int hi){
-        
-
+        //This is a test
     }
 
     private static void sort(int[] arr) {
