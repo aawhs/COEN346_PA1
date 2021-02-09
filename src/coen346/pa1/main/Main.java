@@ -3,6 +3,7 @@ package coen346.pa1.main;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import coen346.pa1.resources.*;
 
 public class Main {
     public static void main(String[] args) throws IOException{
