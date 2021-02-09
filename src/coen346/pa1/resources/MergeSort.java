@@ -26,6 +26,10 @@ public class MergeSort {
             int z=lo;
             
             while(x<firstNum && y<secondNum){
+                
+                Thread t = new Thread(new Multithreading());
+                t.start();
+                
                 if (low[x]<=high[y]){
                     arr[z]=low[x];
                     x++;
@@ -53,7 +57,10 @@ public class MergeSort {
     }
 
     public static void sort(int[] arr, int lo, int hi){
-        if (hi <= lo) return;
+        if (hi <= lo){
+            //t.join(); -->only announces 1 thread completion, and repeats it...
+            return;
+        }
 
         //getting middle point -->had to change Ahmed's mid point equation
             int mid = (lo+hi)/2;
@@ -64,6 +71,19 @@ public class MergeSort {
 
         merge(arr,lo,mid,hi);
 
+    }
+    
+        public static class Multithreading implements Runnable{
+
+        @Override
+        public void run() {
+            System.out.println("Thread "+ Thread.currentThread().getId() + " started");
+            //tList.add(Thread.currentThread());
+        }
+
+        public static void join(){
+            System.out.println("Thread "+ Thread.currentThread().getId() + " finished");
+        }
     }
 
 }
