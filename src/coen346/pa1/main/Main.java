@@ -1,4 +1,4 @@
-package coen346.pa1.main; //test petrumain
+package coen346.pa1.main;
 
 import java.io.*;
 import java.lang.*;
