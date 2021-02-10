@@ -1,4 +1,6 @@
 package coen346.pa1.resources;
+import java.lang.Thread;
+import java.lang.Runnable;
 
 public class Multithreading implements Runnable {
 

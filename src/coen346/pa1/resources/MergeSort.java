@@ -1,6 +1,16 @@
 package coen346.pa1.resources;
 
 public class MergeSort {
+
+    private Thread msThread(int lo, int hi, int num_th){
+        return new Thread(){
+            @Override
+            public void run() {
+                super.run();
+
+            }
+        };
+    }
     public MergeSort(){}
     public MergeSort(int[] arr){
         sort(arr);
@@ -26,9 +36,6 @@ public class MergeSort {
             int z=lo;
             
             while(x<firstNum && y<secondNum){
-                
-                Thread t = new Thread(new Multithreading());
-                t.start();
                 
                 if (low[x]<=high[y]){
                     arr[z]=low[x];
@@ -58,7 +65,6 @@ public class MergeSort {
 
     public static void sort(int[] arr, int lo, int hi){
         if (hi <= lo){
-            //t.join(); -->only announces 1 thread completion, and repeats it...
             return;
         }
 

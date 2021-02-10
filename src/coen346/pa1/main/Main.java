@@ -20,9 +20,8 @@ public class Main {
         System.out.println("Original array: ");
         System.out.println(Arrays.toString(numbers)); //checking to make sure numbers were properly read prior to sorting
 
-        MergeSort obj = new MergeSort();
-        obj.sort(numbers,0, numbers.length-1); //and now they get sent off to be sorted
-
+        MergeSort obj = new MergeSort(numbers); // --> Using the constructor instead of Lorenzo's direct call to reduce redundancy
+        //obj.sort(numbers,0, numbers.length-1); //and now they get sent off to be sorted -->
         System.out.println("Sorted Array: ");
         System.out.println(Arrays.toString(numbers)); //newly sorted number array is now read out -->successful
 
