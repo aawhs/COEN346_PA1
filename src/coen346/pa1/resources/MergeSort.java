@@ -1,89 +1,60 @@
 package coen346.pa1.resources;
 
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+//the Merge Sort class by itself
 public class MergeSort {
-    public MergeSort(){}
-    public MergeSort(int[] arr){
-        sort(arr);
+
+    public static void mergesort(int[] nums, int low, int high){
+        if(low<high){
+            int mid = (low+high)/2;
+            mergesort(nums, low, mid);
+            mergesort(nums, mid+1, high);
+            merge(nums, low, mid, high);
+        }
     }
+    //merging the subarrays back together
+    public static void merge(int[] nums, int lo, int mid, int hi) {
+        int firstNum = mid - lo + 1;
+        int secondNum = hi - mid;
 
+        int low[] = new int [firstNum];
+        int high[] = new int [secondNum];
 
+        for(int i=0;i<firstNum;++i)
+            low[i]=nums[lo+i];
 
-    public static void merge(int[] arr, int lo, int mid, int hi){
-         int firstNum = mid - lo + 1;
-            int secondNum = hi - mid;
+        for(int j=0;j<secondNum;++j)
+            high[j]=nums[mid+j+1];
 
-            int low[] = new int [firstNum];
-            int high[] = new int [secondNum];
+        int x=0;
+        int y=0;
+        int z=lo;
 
-            for(int i=0;i<firstNum;++i)
-                low[i]=arr[lo+i];
-            
-            for(int j=0;j<secondNum;++j)
-                high[j]=arr[mid+j+1];
-
-            int x=0;
-            int y=0;
-            int z=lo;
-            
-            while(x<firstNum && y<secondNum){
-                
-                Thread t = new Thread(new Multithreading());
-                t.start();
-                
-                if (low[x]<=high[y]){
-                    arr[z]=low[x];
-                    x++;
-                }
-                else{
-                    arr[z]=high[y];
-                    y++;
-                }
-                z++;
-            }
-            while (x<firstNum){
-                arr[z]=low[x];
-                z++;
+        while(x<firstNum && y<secondNum){
+            if (low[x]<=high[y]){
+                nums[z]=low[x];
                 x++;
             }
-            while (y<secondNum){
-                arr[z]=high[y];
-                z++;
+            else{
+                nums[z]=high[y];
                 y++;
             }
-    }
-
-    private static void sort(int[] arr) {
-        sort(arr, 0 , arr.length - 1);
-    }
-
-    public static void sort(int[] arr, int lo, int hi){
-        if (hi <= lo){
-            //t.join(); -->only announces 1 thread completion, and repeats it...
-            return;
+            z++;
         }
 
-        //getting middle point -->had to change Ahmed's mid point equation
-            int mid = (lo+hi)/2;
-
-            //sorting each array half
-            sort(arr, lo, mid); //originally was (arr,lo,hi)
-            sort(arr, mid + 1, hi);
-
-        merge(arr,lo,mid,hi);
-
-    }
-    
-        public static class Multithreading implements Runnable{
-
-        @Override
-        public void run() {
-            System.out.println("Thread "+ Thread.currentThread().getId() + " started");
-            //tList.add(Thread.currentThread());
+        while (x<firstNum){
+            nums[z]=low[x];
+            z++;
+            x++;
+        }
+        while (y<secondNum){
+            nums[z]=high[y];
+            z++;
+            y++;
         }
 
-        public static void join(){
-            System.out.println("Thread "+ Thread.currentThread().getId() + " finished");
-        }
     }
-
 }
