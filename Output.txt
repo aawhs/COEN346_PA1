@@ -1,0 +1,34 @@
+Original array: 
+[3304, 8221, 26849, 14038, 1509, 6367, 7856, 21362]
+Thread main Started
+Thread-0 Started
+Thread-1 Started
+Thread-2 Started
+Thread-3 Started
+Thread-4 Started
+Thread-5 Started
+Thread-6 Started
+Thread-7 Started
+Thread-12 Started
+Thread-13 Started
+Thread-8 Started
+Thread-9 Started
+Thread-10 Started
+Thread-11 Started
+Thread-8 Finished : [26849]
+Thread-10 Finished : [1509]
+Thread-11 Finished : [6367]
+Thread-13 Finished : [21362]
+Thread-7 Finished : [8221]
+Thread-4 Finished : [1509, 6367]
+Thread-12 Finished : [7856]
+Thread-9 Finished : [14038]
+Thread-6 Finished : [3304]
+Thread-5 Finished : [7856, 21362]
+Thread-3 Finished : [14038, 26849]
+Thread-2 Finished : [3304, 8221]
+Thread-1 Finished : [1509, 6367, 7856, 21362]
+Thread-0 Finished : [3304, 8221, 14038, 26849]
+Thread main Finished : [1509, 3304, 6367, 7856, 8221, 14038, 21362, 26849]
+Sorted Array: 
+[1509, 3304, 6367, 7856, 8221, 14038, 21362, 26849]
